@@ -33,16 +33,16 @@ LCS::LCS(string x, string y){
     this->cols=y.length();
     cout<< rows << " " << cols << endl;
     matrix_score = new int*[rows];
-    for(int i=0; i<rows; i++)
-        matrix_score[i] = new int[cols];
+    for(int i=0; i<=rows; i++)
+        matrix_score[i] = new int[cols+1];
 
     matrix_path = new string*[rows];
-    for(int i=0; i<rows; i++)
-        matrix_path[i] = new string[cols];
+    for(int i=0; i<=rows; i++)
+        matrix_path[i] = new string[cols+1];
 }
 
 int LCS::getLCSLength(){
-    return matrix_score[rows-1][cols-1];
+    return matrix_score[rows][cols];
 }
 
 int LCS::getRows(){
@@ -54,15 +54,15 @@ int LCS::getCols(){
 }
 
 void LCS::calLCS(){
-    for(int i = 0; i < rows; i++){
+    for(int i = 0; i <= rows; i++){
         matrix_score[i][0]=0;
     }
-    for(int i = 0; i < cols; i++){
+    for(int i = 0; i <= cols+1; i++){
         matrix_score[0][i]=0;
     }
 
-    for(int i = 1; i < rows; i++){
-        for(int j = 1; j < cols; j++){
+    for(int i = 1; i <= rows; i++){
+        for(int j = 1; j <= cols; j++){
             if(x[i-1] == y[j-1]){
                 matrix_score[i][j]=matrix_score[i-1][j-1]+1;
                 matrix_path[i][j]="\\";
@@ -79,15 +79,15 @@ void LCS::calLCS(){
 }
 
 void LCS::printMatrix(){
-    for(int i = 0; i < rows; i++){
-        for(int j = 0; j < cols; j++){
+    for(int i = 0; i <= rows; i++){
+        for(int j = 0; j <= cols; j++){
             cout << matrix_score[i][j];
         }
         cout<<endl;
     }
 
-    for(int i = 0; i < rows; i++){
-        for(int j = 0; j < cols; j++){
+    for(int i = 0; i <= rows; i++){
+        for(int j = 0; j <= cols; j++){
             cout << matrix_path[i][j] << " ";
         }
         cout<<endl;
