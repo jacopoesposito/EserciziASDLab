@@ -16,7 +16,8 @@ int main(int argc, char* argv[]){
     LCS *Lcs = new LCS(x, y);
     Lcs->calLCS();
     Lcs->printMatrix();
-    cout << "Lunghezza LCS-> " << Lcs->getLCSLength() << "LCS String: " << endl;
+    cout << "Lunghezza LCS-> " << Lcs->getLCSLength() << " LCS String-> ";
     Lcs->printLCS(Lcs->getRows()-1, Lcs->getCols()-1);
+    cout << endl;
 
 }

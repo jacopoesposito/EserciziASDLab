@@ -107,6 +107,6 @@ void LCS::printLCS(int i, int j){
     else{
         printLCS(i, j-1);
     }
-    
 }
+
 #endif 
