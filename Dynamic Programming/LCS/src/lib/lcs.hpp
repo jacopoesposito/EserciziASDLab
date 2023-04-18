@@ -57,7 +57,7 @@ void LCS::calLCS(){
     for(int i = 0; i <= rows; i++){
         matrix_score[i][0]=0;
     }
-    for(int i = 0; i <= cols+1; i++){
+    for(int i = 0; i <= cols; i++){
         matrix_score[0][i]=0;
     }
 
