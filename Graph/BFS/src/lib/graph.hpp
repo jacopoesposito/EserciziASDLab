@@ -7,12 +7,12 @@ using namespace std;
 #ifndef graph_hpp
 #define graph_hpp
 
-class Graph{
+class Graph{ //Classe che rappresenta un grafo e contiene il metodo BFS
     public:
         Graph();
         void BFS(Node *s);
         list<Node *> getNodes();
-        void setNodes(Node *node);
+        void AddNode(Node *node);
 
     private:
         list<Node *> Q;
@@ -28,15 +28,17 @@ void Graph::BFS(Node *s){
     Q.push_back(s);
 
     while(!Q.empty()){
-        Node *u = (*Q.begin());
+        Node *u = Q.front();
         Q.pop_front();
 
         list<Node *>::iterator iter;
-        for(iter = u->getListAdj().begin(); iter != u->getListAdj().end(); ++iter){
+        list<Node *> adj = u->getListAdj();
+        for(iter = adj.begin(); iter != adj.end(); ++iter){
             if((*iter)->getColor()=="white"){
                 (*iter)->setParent(u);
                 (*iter)->setDistance(u->getDistance()+1);
-                Q.push_back(*iter);
+                Node *v = *iter;
+                Q.push_back(v);
             }
         }
         u->setColor("black");
@@ -44,8 +46,8 @@ void Graph::BFS(Node *s){
 
 }
 
-void Graph::setNodes(Node *node){
-    this->nodes = nodes;
+void Graph::AddNode(Node* node){
+    this->nodes.push_back(node);
 }
 
 list<Node *> Graph::getNodes(){

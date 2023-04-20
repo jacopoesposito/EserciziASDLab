@@ -45,3 +45,4 @@
 *.vsix
 Dynamic Programming/Fibonacci/.vscode/settings.json
 Dynamic Programming/FastestWay/.vscode/settings.json
+Graph/.vscode/settings.json

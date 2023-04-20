@@ -9,10 +9,10 @@ using namespace std;
 #ifndef node_hpp
 #define node_hpp
 
-class Node{
+class Node{ //Classe che rappresenta un nodo del grafo
     public:
-        Node(int value, bool visited, int time_visit, int time_completation, string color);
-        Node(int value, bool visited, int time_visit, int time_completation, string color, list<Node *> lista_adiacenza);
+        Node(int value, bool visited, string color);
+        Node(int value, bool visited, string color, list<Node *> lista_adiacenza);
 
         //Getter
         int getValue();
@@ -74,6 +74,10 @@ list<Node *> Node::getListAdj(){
     return lista_adiacenza;
 }
 
+Node *Node::getParent(){
+    return parent;
+}
+
 void Node::setValue(int value){
     this->value = value;
 }
@@ -102,23 +106,23 @@ void Node::setDistance(int distance){
     this->distance = distance;
 }
 
-Node::Node(int value, bool visited, int time_visit, int time_completation, string color)
+void Node::setParent(Node* parent){
+    this->parent = parent;
+}
+
+Node::Node(int value, bool visited, string color)
 {
     this->value = value;
     this->visited = visited;
-    this->time_visit = time_visit;
-    this->time_completation = time_completation;
     this->color = color;
     distance = numeric_limits<int>::max();
     parent = nullptr;
 }
 
-Node::Node(int value, bool visited, int time_visit, int time_completation, string color, list<Node *> lista_adiacenza)
+Node::Node(int value, bool visited, string color, list<Node *> lista_adiacenza)
 {
     this->value = value;
     this->visited = visited;
-    this->time_visit = time_visit;
-    this->time_completation = time_completation;
     this->color = color;
     this->lista_adiacenza = lista_adiacenza;
     distance = numeric_limits<int>::max();
