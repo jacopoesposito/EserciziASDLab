@@ -36,9 +36,12 @@ Node *Edge::getDestination(){
     return nodeD;
 }
 
+int Edge::getWeigth(){
+    return weigth;
+}
+
 void Edge::setWeigth(int weigth){
     this->weigth = weigth;
 }
-
 
 #endif

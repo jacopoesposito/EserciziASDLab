@@ -11,7 +11,7 @@ using namespace std;
 
 class Node{ //Classe che rappresenta un nodo del grafo
     public:
-        Node(int value, int d);
+        Node(int value);
 
         //Getter
         int getValue();
@@ -73,7 +73,7 @@ void Node::setDistance(int d){
     this->d = d;
 }
 
-Node::Node(int value, int d)
+Node::Node(int value)
 {
     this->value = value;
     d = numeric_limits<int>::max();
