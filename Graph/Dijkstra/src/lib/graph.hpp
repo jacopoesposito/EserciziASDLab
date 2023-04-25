@@ -10,7 +10,7 @@ using namespace std;
 #ifndef graph_hpp
 #define graph_pp
 
-class Graph{
+class Graph{ //Classe che rappresenta il grafo e contiene i metodi per eseguire Dijkstra
 
     public:
         Graph();
@@ -22,7 +22,7 @@ class Graph{
         void addEdge(Edge *edge);
         void Djikstra(Node *node);
     private:
-        struct Comp{
+        struct Comp{ //Ovveride dell'operatore di confronto per supportare il confronto fra il campo distanza di due nodi del grafo
             bool operator()(Node *a, Node *b){
                 return a->getDistance()>b->getDistance();
             }
@@ -65,7 +65,7 @@ Edge* Graph::getEdge(int nodeS, int nodeD){
 }
 
 void Graph::relax(Node *nodeS, Node *nodeD, Edge *edge){
-    cout << nodeS->getDistance() << endl;
+    //Calcolo la stima della distanza del nodo di destinazione dalla sorgente e inserisco il nodo nella lista
     if(nodeD->getDistance() > (nodeS->getDistance() + edge->getWeigth())){
         nodeD->setParent(nodeS);
         int d = nodeS->getDistance() + edge->getWeigth();
