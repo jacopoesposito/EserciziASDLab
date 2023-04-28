@@ -30,7 +30,7 @@ class Graph{ //Classe che rappresenta il grafo e contiene i metodi per eseguire 
     private:
         struct Comp{ //Ovveride dell'operatore di confronto per supportare il confronto fra il campo distanza di due nodi del grafo
             bool operator()(Edge *a, Edge *b){
-                return a->getWeigth()>b->getWeigth();
+                return a->getWeigth()<b->getWeigth();
             }
         };
 
@@ -71,6 +71,8 @@ void Graph::Kruskal(){
     sort(edges.begin(), edges.end(), Comp());
 
     vector<Edge *>::iterator edgeIter;
+    for(edgeIter = edges.begin(); edgeIter != edges.end(); ++edgeIter)
+        cout << (*edgeIter)->getSource()->getValue() << " " << (*edgeIter)->getDestination()->getValue() << endl;
     for(edgeIter = edges.begin(); edgeIter != edges.end(); ++edgeIter){
         if(FindSet((*edgeIter)->getSource()) != FindSet((*edgeIter)->getDestination())){
             A.push_back(*edgeIter);
@@ -86,7 +88,7 @@ void Graph::makeSet(Node *nodeS){
 }
 
 Node* Graph::FindSet(Node *nodeS){
-    if(nodeS->getParent() != nodeS){
+    if(nodeS != nodeS->getParent()){
         nodeS->setParent(FindSet(nodeS->getParent()));
     }
     return nodeS->getParent();
@@ -96,11 +98,11 @@ void Graph::link(Node *nodeS, Node *nodeD){
     if(nodeS->getDistance() > nodeD->getDistance()){
         nodeD->setParent(nodeS);
     }
-    else if(nodeS->getDistance() == nodeD->getDistance()){
-        nodeD->setDistance(nodeD->getDistance()+1);
-    }
     else{
         nodeS->setParent(nodeD);
+        if(nodeS->getDistance() == nodeD->getDistance()){
+            nodeD->setDistance((nodeD->getDistance()+1));
+    }
     }
 
 }

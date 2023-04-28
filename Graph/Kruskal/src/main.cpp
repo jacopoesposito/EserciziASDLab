@@ -57,9 +57,11 @@ int main(int argc, char **argv){
             secondNode = new Node(desNodeInt);
             Grp->addNode(secondNode);
             firstNode->setListAdiacenza(secondNode);
+            secondNode->setListAdiacenza(firstNode);
         }else{
             secondNode = (*secondNodeIter);
             firstNode->setListAdiacenza(secondNode);
+            secondNode->setListAdiacenza(firstNode);
         }
 
         Edge *edge = new Edge(firstNode, secondNode, weigthInt);
