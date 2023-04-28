@@ -84,6 +84,7 @@ int main(int argc, char **argv){
 
     Grp->Kruskal();
     list<Edge *> A = Grp->getMinPath();
+    cout << "Nodo sorgente " << " Nodo Destinazione " << " Rando NS " << " Rango ND" << endl;
     list<Edge*>::iterator edgeIter;
     for(edgeIter = A.begin(); edgeIter != A.end(); ++edgeIter){
         cout << (*edgeIter)->getSource()->getValue() << " " << (*edgeIter)->getDestination()->getValue() << " " <<

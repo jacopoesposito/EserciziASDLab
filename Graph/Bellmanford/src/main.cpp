@@ -86,7 +86,7 @@ int main(int argc, char **argv){
         return -2;
     }
 
-
+    cout << "Nodo attuale " << " Predecessore cammino" << " Distanza da sorgente" << endl;
     for(iter = nodes.begin(); iter != nodes.end(); ++iter){
         if(((*iter)->getParent() == nullptr) && (*iter)->getDistance() != numeric_limits<int>::max())
             cout << (*iter)->getValue() << "   " << "NULL" << "   " << (*iter)->getDistance() << endl;

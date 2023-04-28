@@ -81,6 +81,7 @@ int main(int argc, char **argv){
     }
 
     Grp->Djikstra(nodes.front());
+    cout << "Nodo attuale " << " Predecessore " << " Distanza da sorgente " << endl;
     list<Node *> minPath = Grp->getMinPath();
     for(iter = minPath.begin(); iter != minPath.end(); ++iter){
         if(((*iter)->getParent() == nullptr) && (*iter)->getDistance() != numeric_limits<int>::max())
