@@ -9,7 +9,6 @@ using namespace std;
 class Tree{
 
     private:
-        vector<Node *> tree;
         Node *root;
     public:
         Tree();
