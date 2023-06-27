@@ -33,7 +33,7 @@ git clone https://github.com/jacopoesposito/EserciziASDLab.git
 ```
 * Compilare ed eseguire il programma
 ```console
-gcc [nome_programma].c -o [nome_programma] -pthread
+gcc [nome_programma].c -o [nome_programma]
 
 ./[nome_programma]
 ```
