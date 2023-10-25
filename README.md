@@ -1,5 +1,7 @@
 # EserciziASDLab
  Implementazione degli Algoritmi e Strutture Dati in C++.
+ 
+ Il presente repository contiene alcune implementazioni degli algoritmi e delle strutture dati viste nel corso di ASD dell'Università degli Studi di Napoli "Parthenope".
 
 # Come scaricare il materiale.
 La presente è una guida valida per i sistemi GNU/Linux.
